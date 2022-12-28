@@ -33,6 +33,11 @@ class _StockMarketChartState extends State<StockMarketChart> {
   }
 
   void setSpots(List<StockIndicator> indicators) {
+    minX = indicators[0].quote;
+    maxX = indicators[0].quote;
+    minY = indicators[0].quote;
+    maxY = indicators[0].quote;
+
     for (int index = 0; index < indicators.length; index++) {
       final x = index.toDouble();
       final y = indicators[index].quote;
@@ -97,7 +102,7 @@ class _StockMarketChartState extends State<StockMarketChart> {
               minX: minX,
               maxX: maxX,
               minY: minY,
-              maxY: maxY + 10,
+              maxY: maxY,
               gridData: FlGridData(show: false),
               titlesData: FlTitlesData(show: false),
               borderData: FlBorderData(show: false),

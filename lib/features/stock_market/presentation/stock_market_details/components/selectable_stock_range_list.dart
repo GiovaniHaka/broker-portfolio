@@ -1,5 +1,6 @@
 import 'package:broker_portfolio/common/constants/ui/custom_text_style.dart';
 import 'package:broker_portfolio/common/constants/ui/padding_constants.dart';
+import 'package:broker_portfolio/common/widgets/decorated_container.dart';
 import 'package:flutter/material.dart';
 
 import 'package:broker_portfolio/common/widgets/separators/horizontal_separator.dart';
@@ -55,19 +56,14 @@ class StockRangeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return DecoratedContainer(
       onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(smallPadding),
-        decoration: BoxDecoration(
-          color: isSelected ? Colors.black : Colors.white,
-          borderRadius: BorderRadius.circular(100),
-        ),
-        child: Text(
-          range.value,
-          style: CustomTextStyle.labelSmall(context).copyWith(
-            color: isSelected ? Colors.white : Colors.black,
-          ),
+      padding: smallPadding,
+      color: isSelected ? Colors.black : Colors.white,
+      child: Text(
+        range.value,
+        style: CustomTextStyle.labelSmall(context).copyWith(
+          color: isSelected ? Colors.white : Colors.black,
         ),
       ),
     );

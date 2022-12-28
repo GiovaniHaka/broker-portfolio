@@ -1,10 +1,9 @@
+import 'package:broker_portfolio/common/widgets/decorated_container.dart';
 import 'package:flutter/material.dart';
 
 import 'package:broker_portfolio/common/constants/ui/custom_colors.dart';
 import 'package:broker_portfolio/common/constants/ui/custom_icon_data.dart';
 import 'package:broker_portfolio/common/constants/ui/custom_text_style.dart';
-import 'package:broker_portfolio/common/constants/ui/padding_constants.dart';
-import 'package:broker_portfolio/common/constants/ui/radius_constants.dart';
 import 'package:broker_portfolio/common/widgets/separators/horizontal_separator.dart';
 import 'package:broker_portfolio/common/widgets/separators/vertical_separator.dart';
 import 'package:broker_portfolio/features/stock_market/domain/models/types/stock_indicator.dart';
@@ -21,14 +20,7 @@ class StockIndicatorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(defaultPadding),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(defaultRadius),
-        border: Border.all(
-          color: CustomColors.greyMedium,
-        ),
-      ),
+    return DecoratedContainer(
       child: Row(
         children: [
           Expanded(

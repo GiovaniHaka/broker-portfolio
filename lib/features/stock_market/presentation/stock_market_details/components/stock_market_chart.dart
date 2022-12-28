@@ -1,11 +1,10 @@
+import 'package:broker_portfolio/common/widgets/decorated_container.dart';
 import 'package:broker_portfolio/utils/datetime/datetime_format.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import 'package:broker_portfolio/common/constants/ui/custom_colors.dart';
 import 'package:broker_portfolio/common/constants/ui/custom_text_style.dart';
 import 'package:broker_portfolio/common/constants/ui/padding_constants.dart';
-import 'package:broker_portfolio/common/constants/ui/radius_constants.dart';
 import 'package:broker_portfolio/features/stock_market/domain/models/types/stock_indicator.dart';
 
 class StockMarketChart extends StatefulWidget {
@@ -90,11 +89,7 @@ class _StockMarketChartState extends State<StockMarketChart> {
 
     return AspectRatio(
       aspectRatio: 1.3,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(defaultRadius),
-          border: Border.all(color: CustomColors.greyMedium),
-        ),
+      child: DecoratedContainer(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: largePadding),
           child: LineChart(

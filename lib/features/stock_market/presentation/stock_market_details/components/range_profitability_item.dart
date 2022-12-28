@@ -1,10 +1,9 @@
+import 'package:broker_portfolio/common/widgets/decorated_container.dart';
 import 'package:flutter/material.dart';
 
 import 'package:broker_portfolio/common/constants/ui/custom_colors.dart';
 import 'package:broker_portfolio/common/constants/ui/custom_icon_data.dart';
 import 'package:broker_portfolio/common/constants/ui/custom_text_style.dart';
-import 'package:broker_portfolio/common/constants/ui/padding_constants.dart';
-import 'package:broker_portfolio/common/constants/ui/radius_constants.dart';
 import 'package:broker_portfolio/common/widgets/separators/horizontal_separator.dart';
 
 class RangeProfitabilityItem extends StatelessWidget {
@@ -17,14 +16,7 @@ class RangeProfitabilityItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(defaultPadding),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: CustomColors.greyMedium,
-        ),
-        borderRadius: BorderRadius.circular(defaultRadius),
-      ),
+    return DecoratedContainer(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

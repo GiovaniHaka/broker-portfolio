@@ -2,13 +2,13 @@ import 'package:broker_portfolio/utils/profitability/calculate_profitability.dar
 
 class StockIndicator {
   late double quote;
+  double profitability;
   DateTime dateTime;
-  double? profitability;
 
   StockIndicator({
     required this.dateTime,
+    this.profitability = 0,
     double? quote,
-    this.profitability,
   }) {
     this.quote = quote ?? 0;
   }

@@ -1,15 +1,15 @@
+import 'package:flutter/material.dart';
+
+import 'package:broker_portfolio/common/constants/ui/custom_colors.dart';
 import 'package:broker_portfolio/common/constants/ui/custom_icon_data.dart';
+import 'package:broker_portfolio/common/constants/ui/custom_text_style.dart';
+import 'package:broker_portfolio/common/constants/ui/padding_constants.dart';
+import 'package:broker_portfolio/common/constants/ui/radius_constants.dart';
 import 'package:broker_portfolio/common/widgets/separators/horizontal_separator.dart';
 import 'package:broker_portfolio/common/widgets/separators/vertical_separator.dart';
 import 'package:broker_portfolio/features/stock_market/domain/models/types/stock_indicator.dart';
 import 'package:broker_portfolio/utils/currency/double_to_currency.dart';
 import 'package:broker_portfolio/utils/datetime/datetime_format.dart';
-import 'package:flutter/material.dart';
-
-import 'package:broker_portfolio/common/constants/ui/custom_colors.dart';
-import 'package:broker_portfolio/common/constants/ui/custom_text_style.dart';
-import 'package:broker_portfolio/common/constants/ui/padding_constants.dart';
-import 'package:broker_portfolio/common/constants/ui/radius_constants.dart';
 
 class StockIndicatorItem extends StatelessWidget {
   final StockIndicator indicator;
@@ -24,10 +24,10 @@ class StockIndicatorItem extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(defaultRadius),
         border: Border.all(
           color: CustomColors.greyMedium,
         ),
-        borderRadius: BorderRadius.circular(defaultRadius),
       ),
       child: Row(
         children: [
@@ -43,15 +43,11 @@ class StockIndicatorItem extends StatelessWidget {
                 Builder(builder: (context) {
                   final variation = indicator.profitability;
 
-                  if (variation == null) {
-                    return const SizedBox();
-                  }
-
-                  final color = variation > 0
+                  final color = variation >= 0
                       ? CustomColors.greenStrong
                       : CustomColors.redStrong;
 
-                  final iconData = variation > 0
+                  final iconData = variation >= 0
                       ? CustomIconData.trendingUp
                       : CustomIconData.trendingDown;
 

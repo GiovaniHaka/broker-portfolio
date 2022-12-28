@@ -79,7 +79,7 @@ class CustomTextStyle {
 
   static TextStyle labelSmall(BuildContext context) {
     const style = TextStyle(
-      fontSize: 14,
+      fontSize: 13,
       fontWeight: FontWeight.w300,
       color: color,
     );

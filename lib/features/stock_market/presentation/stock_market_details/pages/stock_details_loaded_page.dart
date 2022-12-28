@@ -1,6 +1,7 @@
 import 'package:broker_portfolio/common/widgets/separators/vertical_separator.dart';
 import 'package:broker_portfolio/common/widgets/slivers/sliver_list_separated.dart';
 import 'package:broker_portfolio/features/stock_market/domain/models/types/stock_range.dart';
+import 'package:broker_portfolio/features/stock_market/presentation/stock_market_details/components/range_profitability_item.dart';
 import 'package:broker_portfolio/features/stock_market/presentation/stock_market_details/components/selectable_stock_range_list.dart';
 import 'package:broker_portfolio/features/stock_market/presentation/stock_market_details/components/stock_indicator_item.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +43,13 @@ class StockDetailsLoadedPage extends StatelessWidget {
                   ranges: stockMarket.validRanges,
                   selectedRange: stockMarket.range,
                 ),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: viewPadding),
+              sliver: SliverToBoxAdapter(
+                child: RangeProfitabilityItem(
+                    profitability: stockMarket.rangeProfitability),
               ),
             ),
             SliverPadding(

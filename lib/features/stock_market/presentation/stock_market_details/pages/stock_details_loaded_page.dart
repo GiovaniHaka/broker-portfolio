@@ -1,3 +1,4 @@
+import 'package:broker_portfolio/common/constants/ui/custom_icon_data.dart';
 import 'package:broker_portfolio/features/stock_market/presentation/stock_market_details/components/stock_market_chart.dart';
 import 'package:broker_portfolio/features/stock_market/presentation/stock_market_details/components/stock_market_indicators_list.dart';
 import 'package:flutter/material.dart';
@@ -56,8 +57,8 @@ class _StockDetailsLoadedPageState extends State<StockDetailsLoadedPage> {
                           onPressed: () => switchIndicatorsView(),
                           icon: Icon(
                             isShowingChart
-                                ? Icons.list
-                                : Icons.show_chart_rounded,
+                                ? CustomIconData.list
+                                : CustomIconData.chart,
                           ),
                         ),
                       ],

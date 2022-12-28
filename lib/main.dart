@@ -1,6 +1,8 @@
 import 'package:broker_portfolio/common/constants/ui/custom_colors.dart';
-import 'package:broker_portfolio/features/stock_market/presentation/stock_market_details/stock_details_screen.dart';
-import 'package:flutter/material.dart';import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:broker_portfolio/features/home/home_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/route_manager.dart';
 import 'package:intl/intl.dart';
 
 void main() {
@@ -14,9 +16,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
-       localizationsDelegates: const [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -27,10 +29,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: CustomColors.backgroundColor,
         appBarTheme: const AppBarTheme(
           backgroundColor: CustomColors.backgroundColor,
+          foregroundColor: Colors.black,
         ),
-        primarySwatch: Colors.blue,
       ),
-      home: const StockMarketDetailsScreen(stockSymbol: 'PETR4.SA'),
+      home: const HomeScreen(),
     );
   }
 }

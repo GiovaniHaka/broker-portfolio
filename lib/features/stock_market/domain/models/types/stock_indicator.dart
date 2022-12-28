@@ -1,19 +1,23 @@
+import 'package:broker_portfolio/utils/profitability/calculate_profitability.dart';
+
 class StockIndicator {
+  late double quote;
+  double profitability;
   DateTime dateTime;
-  double quote;
-  double? variation;
 
   StockIndicator({
     required this.dateTime,
-    required this.quote,
-    this.variation,
-  });
+    this.profitability = 0,
+    double? quote,
+  }) {
+    this.quote = quote ?? 0;
+  }
 
-  calculateVariation(double previousQuote) {
-    variation = (quote / previousQuote) * 100 - 100;
+  void calculateVariation(double previousQuote) {
+    profitability = calculateProfitability(previousQuote, quote);
   }
 
   @override
   String toString() =>
-      'StockIndicator(dateTime: $dateTime, quote: $quote, variation: $variation)';
+      'StockIndicator(dateTime: $dateTime, quote: $quote, variation: $profitability)';
 }

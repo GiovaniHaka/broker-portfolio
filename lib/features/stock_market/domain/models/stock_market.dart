@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:broker_portfolio/features/stock_market/domain/models/types/stock_indicator.dart';
 import 'package:broker_portfolio/features/stock_market/domain/models/types/stock_interval.dart';
 import 'package:broker_portfolio/features/stock_market/domain/models/types/stock_range.dart';
 import 'package:broker_portfolio/utils/datetime/datetime_from_timestamp.dart';
+import 'package:broker_portfolio/utils/profitability/calculate_profitability.dart';
 
 class StockMarket {
   String symbol;
@@ -25,6 +28,8 @@ class StockMarket {
     final timestamps = map['timestamp'] as List;
     final quotes = map['indicators']['quote'] as List;
     final opens = quotes.first['open'] as List;
+
+    log(quotes.toString());
 
     final stockMarket = StockMarket(
       symbol: meta['symbol'] ?? '',
@@ -76,6 +81,17 @@ class StockMarket {
       final previousQuote = indicators[i - 1].quote;
       indicators[i].calculateVariation(previousQuote);
     }
+  }
+
+  double get lastVariation {
+    final indicator = indicators.last;
+    return indicator.quote;
+  }
+
+  double get rangeProfitability {
+    final first = indicators.first.quote;
+    final last = indicators.last.quote;
+    return calculateProfitability(first, last);
   }
 
   @override
